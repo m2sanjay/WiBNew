@@ -62,16 +62,14 @@ export default class LoginScreen extends Component {
                 flex: 1,
                 backgroundColor: '#eee'
               }}>
-                <View
-                  source={require('../assets/images/bg_gradient.png')}
-                  style={{
+			  <Image source={require('../assets/images/bg_gradient.png')} style={{
                     position: 'absolute',
-                    top: 0,            
-                    backgroundColor: '#131642',
+                    top: 0,
                     left: 0,
                     width: '100%',
                     height: '100%'
-                  }}></View>
+                  }}/>
+                
                 <View
                   style={{
                     flex: 1,
