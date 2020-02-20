@@ -4,14 +4,11 @@ import {
     Text,
     View,
     StyleSheet,
-    ToastAndroid,
-    TouchableOpacity
+    ToastAndroid 
 } from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { createStackNavigator, NavigationActions, StackActions } from 'react-navigation';
 import {TextInput, Button} from 'react-native-paper';
-import {Actions} from 'react-native-router-flux';
 
 const Toast = (props) => {
     if (props.visible) {
@@ -21,7 +18,7 @@ const Toast = (props) => {
     return null;
 };
 
-export default class LoginScreen extends Component {
+export default class RegisterScreen extends Component {
 
     constructor() {
         super();
@@ -50,13 +47,12 @@ export default class LoginScreen extends Component {
         }
         this.isFormValid = false;
     }
-    navigateToRegisterPage = () => {
-      Actions.RegisterScreen();
-  
-    }
+
     render() {
         const passwordIcon = <Icon name="lock-open" size={20} color="white"/>
         const emailIcon = <Icon name="email" size={20} color="white"/>
+        const nameIcon = <Icon name="face" size={20} color="white"/>
+        const phoneIcon = <Icon name="phone-iphone" size={20} color="white"/>
         const textColor = { text: 'white', 
         placeholder: 'white', 
         primary: "#0F52BA", 
@@ -98,7 +94,31 @@ export default class LoginScreen extends Component {
                           paddingTop: 0,
                           borderRadius: 5
                         }}>
-        
+                        <View
+                          style={{
+                            flex: 1,
+                            flexDirection: 'row'
+                          }}>
+                          <View
+                            style={{
+                              flex: 1,
+                              marginTop: 35,
+                              marginRight: -10
+                            }}>
+                            {nameIcon}
+                          </View>
+                          <View
+                            style={{
+                              flex: 8,
+                              marginTop: 0
+                            }}>
+                            <TextInput value=''
+                                       label="Name"                                                
+                                       mode='flat'
+                                       underlineColor= 'white'
+                                       theme={{ colors: textColor }}/>
+                          </View>
+                        </View>
                         <View
                           style={{
                             flex: 1,
@@ -118,7 +138,32 @@ export default class LoginScreen extends Component {
                               marginTop: 0
                             }}>
                             <TextInput value=''
-                                       label="Name"                                                
+                                       label="Email"                                                
+                                       mode='flat'
+                                       underlineColor= 'white'
+                                       theme={{ colors: textColor }}/>
+                          </View>
+                        </View>
+                        <View
+                          style={{
+                            flex: 1,
+                            flexDirection: 'row'
+                          }}>
+                          <View
+                            style={{
+                              flex: 1,
+                              marginTop: 35,
+                              marginRight: -10
+                            }}>
+                            {phoneIcon}
+                          </View>
+                          <View
+                            style={{
+                              flex: 8,
+                              marginTop: 0
+                            }}>
+                            <TextInput value=''
+                                       label="Contact"                                                
                                        mode='flat'
                                        underlineColor= 'white'
                                        theme={{ colors: textColor }}/>
@@ -149,10 +194,34 @@ export default class LoginScreen extends Component {
                                     theme={{ colors: textColor }}/>
                           </View>
                         </View>
-        
+                        <View
+                          style={{
+                            flex: 1,
+                            flexDirection: 'row'
+                          }}>
+                          <View
+                            style={{
+                              flex: 1,
+                              marginTop: 35,
+                              marginRight: -10
+                            }}>
+                            {passwordIcon}
+                          </View>
+                          <View
+                            style={{
+                              flex: 8,
+                              marginTop: 0
+                            }}>
+                            <TextInput
+                                    label="Confirm Password"
+                                    mode='flat'
+                                    underlineColor= 'white'
+                                    theme={{ colors: textColor }}/>
+                          </View>
+                        </View>
                         <View style={styles.buttonStyle}>
                         <Button mode="contained">
-                            Sign In
+                            Register
                         </Button>
                       
                         </View>
@@ -163,9 +232,7 @@ export default class LoginScreen extends Component {
                               textAlign: 'right',
                               alignSelf: 'stretch'
                             }}
-                            >Don't have an account yet ?
-                          </Text>
-                          <TouchableOpacity onPress={() => this.navigateToRegisterPage()}><Text style={styles.signupButton}> Signup</Text></TouchableOpacity>
+                            >Don't have an account yet ?</Text>
                         </View>
                       </View>
                     </View>
