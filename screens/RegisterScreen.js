@@ -91,7 +91,7 @@ export default class RegisterScreen extends Component {
                           justifyContent: 'center',
                           alignItems: 'center'
                         }}>
-                        <Image source={require('../assets/images/finalLogo.jpg')} style={styles.logoImage} />
+                        <Image source={require('../assets/images/icon.png')} style={styles.logoImage} />
                       </View>
         
                       <View
@@ -225,22 +225,14 @@ export default class RegisterScreen extends Component {
                                     theme={{ colors: textColor }}/>
                           </View>
                         </View>
-                        <View style={styles.buttonStyle}>
-                        <Button mode="contained">
-                            Register
-                        </Button>
-                      
+                        <View style={styles.buttonView}>
+                          <TouchableOpacity  activeOpacity={0.5}>
+                                  <Text style={styles.TextStyle}> Register </Text>
+                          </TouchableOpacity>
                         </View>
                         <View style={styles.buttonTextStyle}>
-                          <Text
-                            style={{
-                              color: 'white',
-                              textAlign: 'right',
-                              alignSelf: 'stretch'
-                            }}
-                            >Already have an account ?
-                          </Text>
-                          <TouchableOpacity onPress={() => this.navigateToLoginPage()}><Text style={styles.signupButton}> Login</Text></TouchableOpacity>
+                          <Text  style={styles.messageStyle}> Already have a account ?</Text>
+                          <TouchableOpacity onPress={() => this.navigateToLoginPage()}><Text style={styles.messageStyle}> Sign In</Text></TouchableOpacity>
                         </View>
                       </View>
                     </View>
@@ -253,82 +245,80 @@ export default class RegisterScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-    buttonStyle: {
-      marginTop: 10
+   buttonView: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 20,
+      width:340,
+      height:35,
+      marginLeft:32,
+      backgroundColor:'#0E3872'
     },
     buttonTextStyle: {
       marginTop: 10,
-      flexDirection: 'row'
-    },
-    logoImage: {
-      marginBottom: 20,
-      marginTop: 50,
-      height: 120,
-      width: 120,
-      backgroundColor: 'transparent'
-    },
-    image: {
-      marginBottom: 20,
-      marginTop: 50,
-      height: 120,
-      width: 120
-    },
-    input: {
-      height: 45,
-      borderColor: 'gray',
-      borderWidth: 1,
-      borderRadius: 5,
-      marginBottom: 20,
-      fontSize: 20,
-      paddingLeft: 5,
-      paddingRight: 5,
-      backgroundColor: '#FFFFFF'
-    },
-    loginHeader: {
-      paddingVertical: 10,
-      backgroundColor: '#3480eb',
+      flexDirection: 'row',
+      marginLeft:32,
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
+    },
+    messageStyle:{
+      color: 'white',
+      textAlign: 'center',
+      alignSelf: 'stretch'
     },
     main: {
       margin: 20
     },
-    image: {
+    
+    logoImage: {
       marginBottom: 20,
       marginTop: 50,
-      height: 150,
-      width: 150
+      height: 120,
+      width: 130,
     },
-    buttonContainer: {
-      backgroundColor: '#5194ff',
-      paddingVertical: 10,
-      marginTop: 20,
-      height: 50,
-      borderRadius: 5
-    },
-    buttonContainer2: {
-      backgroundColor: '#fcc358',
-      paddingVertical: 10,
-      marginTop: 20,
-      height: 50,
-      borderRadius: 5
-    },
-    buttonText: {
-      fontSize: 18,
-      fontWeight: 'bold',
-      textAlign: 'center',
-      color: '#FFFFFF'
-    },
-    footer: {
-      height: 30,
-      color: '#FFFFFF',
-      textAlign: 'center',
-      fontSize: 18,
-      backgroundColor: 'gray'
-    },
-    copyright: {
-      textAlign: 'center',
-      margin: 20,
-      fontSize: 14
-    }
+    MainContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      margin: 10
+    },    
+    GooglePlusStyle: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: '#1E548C',
+      borderWidth: .5,
+      borderColor: '#091F45',
+      height: 40,
+      borderRadius: 5 ,
+      margin: 5,
+    },    
+   FacebookStyle: {
+     flexDirection: 'row',
+     alignItems: 'center',
+     backgroundColor: '#1E548C',
+     borderWidth: .5,
+     borderColor: '#091F45',
+     height: 40,
+     borderRadius: 5 ,
+     margin: 5,
+    
+   },    
+   ImageIconStyle: {
+      padding: 10,
+      margin: 5,
+      height: 25,
+      width: 25,
+      resizeMode : 'stretch',
+    
+   },    
+   TextStyle :{
+     color: "#fff",
+     marginBottom : 4,
+     marginRight :20,
+  },    
+  SeparatorLine :{
+    backgroundColor : '#0F3A74',
+    width: 2,
+    height: 38
+  }
   });

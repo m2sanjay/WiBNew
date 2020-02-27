@@ -133,7 +133,7 @@ export default class LoginScreen extends Component {
                               marginTop: 0
                             }}>
                             <TextInput value=''
-                                       label="Name"                                                
+                                       label="Email Id"                                                
                                        mode='flat'
                                        underlineColor= 'white'
                                        theme={{ colors: textColor }}/>
@@ -166,7 +166,7 @@ export default class LoginScreen extends Component {
                         </View>
         
                         <View style={styles.buttonView}>
-                          <TouchableOpacity style={styles.GooglePlusStyle} activeOpacity={0.5}>
+                          <TouchableOpacity  activeOpacity={0.5}>
                                   <Text style={styles.TextStyle}> Sign In</Text>
                           </TouchableOpacity>
                         </View>
@@ -186,37 +186,25 @@ export default class LoginScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-   //remove have 1 reference change it
     buttonView: {
-      marginTop: 10,
-      backgroundColor:'transparent'
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 20,
+      width:340,
+      height:35,
+      marginLeft:32,
+      backgroundColor:'#0E3872'
     },
-    
     buttonTextStyle: {
       marginTop: 10,
-      flexDirection: 'row'
-    },
-    
-    input: {
-      height: 45,
-      borderColor: 'gray',
-      borderWidth: 1,
-      borderRadius: 5,
-      marginBottom: 20,
-      fontSize: 20,
-      paddingLeft: 5,
-      paddingRight: 5,
-      backgroundColor: '#FFFFFF'
-    },
-    loginHeader: {
-      paddingVertical: 10,
-      backgroundColor: '#3480eb',
+      flexDirection: 'row',
+      marginLeft:32,
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
     },
     messageStyle:{
       color: 'white',
-      textAlign: 'right',
+      textAlign: 'center',
       alignSelf: 'stretch'
     },
     main: {
@@ -229,51 +217,12 @@ const styles = StyleSheet.create({
       height: 120,
       width: 130,
     },
-    googleImage: {
-      marginTop:5,
-     // height: 60,
-      width: 380,
-      backgroundColor:'transparent'
-    },
-    buttonContainer: {
-      backgroundColor: '#5194ff',
-      paddingVertical: 10,
-      marginTop: 20,
-      height: 50,
-      borderRadius: 5
-    },
-    buttonContainer2: {
-      backgroundColor: '#fcc358',
-      paddingVertical: 10,
-      marginTop: 20,
-      height: 50,
-      borderRadius: 5
-    },
-    buttonText: {
-      fontSize: 18,
-      fontWeight: 'bold',
-      textAlign: 'center',
-      color: '#FFFFFF'
-    },
-    footer: {
-      height: 30,
-      color: '#FFFFFF',
-      textAlign: 'center',
-      fontSize: 18,
-      backgroundColor: 'gray'
-    },
-    copyright: {
-      textAlign: 'center',
-      margin: 20,
-      fontSize: 14
-    },
     MainContainer: {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
       margin: 10
-    },
-    
+    },    
     GooglePlusStyle: {
       flexDirection: 'row',
       alignItems: 'center',
@@ -283,9 +232,7 @@ const styles = StyleSheet.create({
       height: 40,
       borderRadius: 5 ,
       margin: 5,
-    
-   },
-    
+    },    
    FacebookStyle: {
      flexDirection: 'row',
      alignItems: 'center',
@@ -296,8 +243,7 @@ const styles = StyleSheet.create({
      borderRadius: 5 ,
      margin: 5,
     
-   },
-    
+   },    
    ImageIconStyle: {
       padding: 10,
       margin: 5,
@@ -305,21 +251,15 @@ const styles = StyleSheet.create({
       width: 25,
       resizeMode : 'stretch',
     
-   },
-    
+   },    
    TextStyle :{
-    
      color: "#fff",
      marginBottom : 4,
      marginRight :20,
-     
-   },
-    
-   SeparatorLine :{
-    
-   backgroundColor : '#0F3A74',
-   width: 2,
-   height: 38
-    
-   }
+  },    
+  SeparatorLine :{
+    backgroundColor : '#0F3A74',
+    width: 2,
+    height: 38
+  }
   });
