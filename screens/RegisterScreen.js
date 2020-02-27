@@ -4,11 +4,13 @@ import {
     Text,
     View,
     StyleSheet,
-    ToastAndroid 
+    ToastAndroid,
+    TouchableOpacity 
 } from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {TextInput, Button} from 'react-native-paper';
+import {Actions} from 'react-native-router-flux';
 
 const Toast = (props) => {
     if (props.visible) {
@@ -46,6 +48,10 @@ export default class RegisterScreen extends Component {
             isValidConfirmPassword: true
         }
         this.isFormValid = false;
+    }
+    navigateToLoginPage = () => {
+      Actions.LoginScreen();
+  
     }
 
     render() {
@@ -85,7 +91,7 @@ export default class RegisterScreen extends Component {
                           justifyContent: 'center',
                           alignItems: 'center'
                         }}>
-                        <Image source={require('../assets/images/logo.png')} style={styles.image} />
+                        <Image source={require('../assets/images/finalLogo.jpg')} style={styles.logoImage} />
                       </View>
         
                       <View
@@ -225,14 +231,16 @@ export default class RegisterScreen extends Component {
                         </Button>
                       
                         </View>
-                        <View style={styles.buttonStyle}>
+                        <View style={styles.buttonTextStyle}>
                           <Text
                             style={{
                               color: 'white',
                               textAlign: 'right',
                               alignSelf: 'stretch'
                             }}
-                            >Don't have an account yet ?</Text>
+                            >Already have an account ?
+                          </Text>
+                          <TouchableOpacity onPress={() => this.navigateToLoginPage()}><Text style={styles.signupButton}> Login</Text></TouchableOpacity>
                         </View>
                       </View>
                     </View>
@@ -247,6 +255,17 @@ export default class RegisterScreen extends Component {
 const styles = StyleSheet.create({
     buttonStyle: {
       marginTop: 10
+    },
+    buttonTextStyle: {
+      marginTop: 10,
+      flexDirection: 'row'
+    },
+    logoImage: {
+      marginBottom: 20,
+      marginTop: 50,
+      height: 120,
+      width: 120,
+      backgroundColor: 'transparent'
     },
     image: {
       marginBottom: 20,

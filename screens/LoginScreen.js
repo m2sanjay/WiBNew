@@ -5,7 +5,8 @@ import {
     View,
     StyleSheet,
     ToastAndroid,
-    TouchableOpacity
+    TouchableOpacity,
+    ImageBackground
 } from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -89,7 +90,7 @@ export default class LoginScreen extends Component {
                           justifyContent: 'center',
                           alignItems: 'center'
                         }}>
-                        <Image source={require('../assets/images/logo.png')} style={styles.image} />
+                         <Image source={require('../assets/images/icon.png')} style={styles.logoImage} />
                       </View>
         
                       <View
@@ -98,7 +99,21 @@ export default class LoginScreen extends Component {
                           paddingTop: 0,
                           borderRadius: 5
                         }}>
-        
+                        <View style={styles.MainContainer}>
+						
+                              <TouchableOpacity style={styles.FacebookStyle} activeOpacity={0.5}>
+                                  <Image source={require('../assets/images/fb.png')} style={styles.ImageIconStyle} />
+                                  <View style={styles.SeparatorLine} />
+                                  <Text style={styles.TextStyle}> Login Using Facebook </Text>
+                              </TouchableOpacity>
+                                                          
+                              <TouchableOpacity style={styles.GooglePlusStyle} activeOpacity={0.5}>
+                                  <Image source={require('../assets/images/ggl.png')} style={styles.ImageIconStyle} />
+                                  <View style={styles.SeparatorLine} />
+                                  <Text style={styles.TextStyle}> Login Using Google      </Text>
+                              </TouchableOpacity>
+
+                        </View>
                         <View
                           style={{
                             flex: 1,
@@ -150,22 +165,15 @@ export default class LoginScreen extends Component {
                           </View>
                         </View>
         
-                        <View style={styles.buttonStyle}>
-                        <Button mode="contained">
-                            Sign In
-                        </Button>
-                      
+                        <View style={styles.buttonView}>
+                          <TouchableOpacity style={styles.GooglePlusStyle} activeOpacity={0.5}>
+                                  <Text style={styles.TextStyle}> Sign In</Text>
+                          </TouchableOpacity>
                         </View>
-                        <View style={styles.buttonStyle}>
-                          <Text
-                            style={{
-                              color: 'white',
-                              textAlign: 'right',
-                              alignSelf: 'stretch'
-                            }}
-                            >Don't have an account yet ?
-                          </Text>
-                          <TouchableOpacity onPress={() => this.navigateToRegisterPage()}><Text style={styles.signupButton}> Signup</Text></TouchableOpacity>
+                        
+                        <View style={styles.buttonTextStyle}>
+                          <Text  style={styles.messageStyle}>Don't have an account yet ?</Text>
+                          <TouchableOpacity onPress={() => this.navigateToRegisterPage()}><Text style={styles.messageStyle}> Signup</Text></TouchableOpacity>
                         </View>
                       </View>
                     </View>
@@ -178,15 +186,17 @@ export default class LoginScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-    buttonStyle: {
-      marginTop: 10
+   //remove have 1 reference change it
+    buttonView: {
+      marginTop: 10,
+      backgroundColor:'transparent'
     },
-    image: {
-      marginBottom: 20,
-      marginTop: 50,
-      height: 120,
-      width: 120
+    
+    buttonTextStyle: {
+      marginTop: 10,
+      flexDirection: 'row'
     },
+    
     input: {
       height: 45,
       borderColor: 'gray',
@@ -204,14 +214,26 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center'
     },
+    messageStyle:{
+      color: 'white',
+      textAlign: 'right',
+      alignSelf: 'stretch'
+    },
     main: {
       margin: 20
     },
-    image: {
+    
+    logoImage: {
       marginBottom: 20,
       marginTop: 50,
-      height: 150,
-      width: 150
+      height: 120,
+      width: 130,
+    },
+    googleImage: {
+      marginTop:5,
+     // height: 60,
+      width: 380,
+      backgroundColor:'transparent'
     },
     buttonContainer: {
       backgroundColor: '#5194ff',
@@ -244,5 +266,60 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       margin: 20,
       fontSize: 14
-    }
+    },
+    MainContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      margin: 10
+    },
+    
+    GooglePlusStyle: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: '#1E548C',
+      borderWidth: .5,
+      borderColor: '#091F45',
+      height: 40,
+      borderRadius: 5 ,
+      margin: 5,
+    
+   },
+    
+   FacebookStyle: {
+     flexDirection: 'row',
+     alignItems: 'center',
+     backgroundColor: '#1E548C',
+     borderWidth: .5,
+     borderColor: '#091F45',
+     height: 40,
+     borderRadius: 5 ,
+     margin: 5,
+    
+   },
+    
+   ImageIconStyle: {
+      padding: 10,
+      margin: 5,
+      height: 25,
+      width: 25,
+      resizeMode : 'stretch',
+    
+   },
+    
+   TextStyle :{
+    
+     color: "#fff",
+     marginBottom : 4,
+     marginRight :20,
+     
+   },
+    
+   SeparatorLine :{
+    
+   backgroundColor : '#0F3A74',
+   width: 2,
+   height: 38
+    
+   }
   });
