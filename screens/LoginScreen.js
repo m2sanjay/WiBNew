@@ -55,6 +55,10 @@ export default class LoginScreen extends Component {
       Actions.RegisterScreen();
   
     }
+    navigateToGoogleMaps = () => {
+      Actions.GoogleMapScreen();
+  
+    }
     render() {
         const passwordIcon = <Icon name="lock-open" size={20} color="white"/>
         const emailIcon = <Icon name="email" size={20} color="white"/>
@@ -174,6 +178,10 @@ export default class LoginScreen extends Component {
                         <View style={styles.buttonTextStyle}>
                           <Text  style={styles.messageStyle}>Don't have an account yet ?</Text>
                           <TouchableOpacity onPress={() => this.navigateToRegisterPage()}><Text style={styles.messageStyle}> Signup</Text></TouchableOpacity>
+                        </View>
+                        <View style={styles.buttonTextStyle}>
+                          <Text  style={styles.messageStyle}>Go to</Text>
+                          <TouchableOpacity onPress={() => this.navigateToGoogleMaps()}><Text style={styles.messageStyle}> Google Maps</Text></TouchableOpacity>
                         </View>
                       </View>
                     </View>
